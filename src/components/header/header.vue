@@ -47,119 +47,88 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../common/stylus/mixin.styl';
+@import '../../common/stylus/mixin.styl'
 // @import '../../common/stylus/icon.styl';
-
-
-.head {
-	position relative
+header
+	position relative // 这里作为背景图的定位
 	overflow hidden
-	color: #fff;
-	background-color rgba(7,17,27,0.5)
-	.content-wrapper {
-		position:relative
-		padding: 24px 12px 18px 24px;
-		font-size: 0; // 消除空白字符
-		background-color: rgba(7, 17, 27, 0.5);
-
-		.avatar {
-			display: inline-block;
-			vertical-align: top;
-
-			img {
-				border-radius: 2px;
-			}
-		}
-
-		.content {
-			display: inline-block;
-			margin-left: 16px;
-
-			.title {
-				margin: 2px 0 8px 0;
-
-				.brand {
-					display: inline-block;
-					vertical-align: top;
-					width: 30px;
-					height: 18px;
-					bg-image('brand');
-					background-size: 30px 18px;
-					background-repeat: no-repeat;
-				}
-
-				.name {
-					display: inline;
-					margin-left: 6px;
-					font-size: 16px;
-					line-height: 18px;
-					font-weight: bold;
-				}
-			}
-
-			.description {
-				font-size: 12px;
-				margin-bottom: 10px;
-				line-height: 12px;
-			}
-
-			.support {
-				.icon {
-					display: inline-block;
-					vertical-align: top;
-					width: 12px;
-					height: 12px;
-					margin-right: 4px;
-					background-size: 12px 12px;
-					background-repeat: no-repeat;
-
-					&.decrease {
-						bg-image('decrease_1');
-					}
-
-					&.discount {
-						bg-image('discount_1');
-					}
-
-					&.guarantee {
-						bg-image('guarantee_1');
-					}
-
-					&.invoice {
-						bg-image('invoice_1');
-					}
-
-					&.special {
-						bg-image('special_1');
-					}
-				}
-
-				.text {
-					font-size: 12px;
-					line-height: 12px;
-				}
-			}
-		}
-		.support-count{
+	color #fff
+	background rgba(7, 17, 27, 0.5)
+	// background: #666
+	.content-wrapper // 外层
+		position relative
+		padding 24px 12px 18px 24px
+		font-size 0
+		.avatar // 头像
+			display inline-block
+			vertical-align top
+			img
+				border-radius 2px
+		.content // 头像右侧内容
+			display inline-block
+			margin-left 16px
+			.title // 商家名
+				margin 2px 0 8px 0
+				.brand // 商家图标
+					display inline-block
+					width 30px
+					height 18px
+					bg-image('brand')
+					background-size 30px 18px
+					background-repeat no-repeat
+					vertical-align top
+				.name // 
+					margin-left 6px
+					font-size 16px
+					line-height 18px
+					font-weight bold
+			.description // 描述
+				margin-bottom 10px
+				line-height 12px
+				font-size 12px
+			.support // 优惠
+				.icon
+					display inline-block
+					vertical-align top
+					width 12px
+					height 12px
+					margin-right 4px
+					background-size 12px 12px
+					background-repeat no-repeat
+					&.decrease // 减
+						bg-image('decrease_1')
+					&.discount // 折
+						bg-image('discount_1')
+					&.guarantee // 套餐
+						bg-image('guarantee_1')
+					&.invoice // 票
+						bg-image('invoice_1')
+					&.special // 保
+						bg-image('special_1')
+				.text // 活动文字
+					line-height 12px
+					font-size 10px
+					font-weight 100
+		.support-count // 右边活动个数
 			position absolute
 			right 12px
-			bottom 18px
+			bottom 14px
 			padding 0 8px
-			height  24px
+			height 24px
 			line-height 24px
 			border-radius 14px
-			background-color rgba(0,0,0,0.2)	
+			background rgba(0, 0, 0, 0.2)
 			text-align center
-			// .count
-			// 	vertical-align top
-			// 	font-size 10px
-			// .icon-keyboard_arrow_right
-			// 	font-size 10px
-			// 	margin-left 2px
-			// 	line-height 24px
-		}
-	}
-	.bulletin-wrapper{
+			.count
+				vertical-align top
+				line-height 24px
+				font-size 12px
+			.icon-keyboard_arrow_right
+				vertical-align top
+				margin-left 2px
+				line-height 24px
+				font-size 12px
+	.bulletin-wrapper // 公告
 		position relative
 		height 28px
 		line-height 28px
@@ -167,30 +136,33 @@ export default {
 		white-space nowrap
 		overflow hidden
 		text-overflow ellipsis
-		background rgba(7,17,27,0.2)
-		// .bulletin-title
-		// 	display inline-block
-		// vertical-align top
-		// margin-top 8px
-		// 	width 22px
-		// 	height 12px
-		// 	bg-image('bulletin')
-		// 	background-size 22px 12px 
-		// 	background-repeat no-repeat
-		// .bulletin-text
-			// vertical-align top
-		// 	margin 0 4px
-		// 	font-size 10px
-	}
-	.background{
+		background rgba(7, 17, 27, 0.2)
+		.bulletin-title // 公告图片
+			display inline-block
+			vertical-align top
+			margin-top 8px
+			width 22px
+			height 12px
+			bg-image('bulletin')
+			background-size 22px 12px
+			background-repeat no-repeat
+		.bulletin-text
+			vertical-align top
+			margin 0 4px
+			font-size 10px
+		.icon-keyboard_arrow_right
+			position absolute
+			font-size 10px
+			right 12px
+			top 8px
+	.background // 背景图片
 		position absolute
 		top 0
 		left 0
 		width 100%
 		height 100%
 		z-index -1
+		// 设置背景图片模糊
 		filter blur(10px)
-	}
-}
 </style>
 

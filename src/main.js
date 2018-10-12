@@ -8,6 +8,9 @@ import goods from './components/goods/goods';
 import ratings from './components/ratings/ratings';
 import seller from './components/seller/seller';
 
+//注册全局样式
+import '../src/common/stylus/index.styl'
+
 /* 安装vue-router插件 */
 Vue.use(VueRouter); // 注册路由
 Vue.prototype.$http = axios
