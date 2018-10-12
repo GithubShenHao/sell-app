@@ -1,5 +1,5 @@
 <template>
-	<div class="head">
+	<div class="header">
 		<div class="content-wrapper">
 			<div class="avatar">
 				<img :src="seller.avatar" width="64" height="64">
@@ -41,15 +41,14 @@ export default {
     }
   },
   created() {
-    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
+	this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
   }
 };
 </script>
 
 <style lang="stylus">
 @import '../../common/stylus/mixin.styl'
-// @import '../../common/stylus/icon.styl';
-header
+.header
 	position relative // 这里作为背景图的定位
 	overflow hidden
 	color #fff
