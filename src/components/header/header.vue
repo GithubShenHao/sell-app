@@ -1,34 +1,54 @@
 <template>
 	<div class="header">
 		<div class="content-wrapper">
+			<!-- 商家头像 -->
 			<div class="avatar">
 				<img :src="seller.avatar" width="64" height="64">
 			</div>
 			<div class="content">
+				<!-- 商家名 -->
 				<div class="title">
 					<span class="brand"></span>
 					<span class="name">{{seller.name}}</span>
 				</div>
+				<!-- 描述和配送时间 -->
 				<div class="description">
 				{{seller.description}}/{{seller.deliveryTime}}分钟送达
 				</div>
+				<!-- 使用v-if是因为初始化时seller为空 -->
 				<div v-if="seller.supports" class="support">
+					<!-- 获取第一条活动数据 -->
 					<span class="icon" :class="classMap[seller.supports[0].type]"></span>
 					<span class="text">{{seller.supports[0].description}}</span>
 				</div>
 			</div>
-			<div v-if="seller.supports" class="support-count">
+			<!-- 活动个数按钮 -->
+			<div v-if="seller.supports" class="support-count" @click="shouDetail">
 				<span class="count">{{seller.supports.length}}个</span>
 				<i class="icon-keyboard_arrow_right"></i>
 			</div>
 		</div>
-		<div class="bulletin-wrapper">
+		<!-- 公告 -->
+		<div class="bulletin-wrapper" @click="shouDetail">
 			<span class="bulletin-title"></span>
 			<span class="bulletin-text">{{seller.bulletin}}</span>
 			<i class="icon-keyboard_arrow_right"></i>			
 		</div>
+		<!-- 头部模糊背景图 -->
 		<div class="background">
 			<img :src="seller.avatar" width="100%" height="100%">
+		</div>
+		<!-- 公告弹层 -->
+		<div v-show="detailShow" class="detail">
+			<div class="detail-wrapper clearfix" >
+				<div class="detail-main">
+					<h1 class="name">{{seller.name}}</h1>
+
+				</div>
+			</div>
+			<div class="detail-close">
+				<i class="icon-close"></i>
+			</div>
 		</div>
 	</div>
 </template>
@@ -40,9 +60,19 @@ export default {
       type: Object
     }
   },
+  data(){
+	return {
+		detailShow:false
+	}
+  },
+  methods:{
+	  shouDetail(){
+		  this.detailShow=true
+	  }
+  },
   created() {
 	this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
-  }
+  },
 };
 </script>
 
@@ -163,5 +193,33 @@ export default {
 		z-index -1
 		// 设置背景图片模糊
 		filter blur(10px)
+	.detail //公告弹层
+		position fixed
+		z-index 100
+		top 0 
+		left 0
+		width 100%
+		height 100%
+		overflow auto
+		background-color rgba(7,17,27,0.8)
+		.detail-wrapper
+			width 100%
+			min-height 100%
+			.detail-main
+				margin-top 64px
+				paddgin-bottom 64px
+				.name
+					line-height 16px
+					text-align center
+					font-size 16px
+					font-weight 700
+		.detail-close
+			position relative
+			width 32px
+			height 32px
+			margin -64px auto 0 auto 
+			clear both 
+			font-size 32px
 </style>
+
 

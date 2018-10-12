@@ -1,14 +1,23 @@
-body,html
-	line-height: 1
-	font-weight: 200
-	font-size: 'PingFang SC','STHeitiSc-Light','Helvecita-Light',arial ,sans-serif
-@media (min-device-pixel-ratio:1.5) and (min-device-pixel-ratio:1.5)
+body, html
+	line-height 1
+	font-weight 200
+	font-size 'PingFang SC', 'STHeitiSc-Light', 'Helvecita-Light', arial, sans-serif
+.clearfix
+	display inline-block
+	&after
+		display block
+		content '.'
+		height 0
+		line-height 0
+		clear both
+		visibility hidden
+@media (min-device-pixel-ratio 1.5) and (min-device-pixel-ratio 1.5)
 	.border-1px
-		&::after
-			-webkit-transform: scaleY(0.7)
-			transform: scaleY(0.7)			
-@media (min-device-pixel-ratio:2) and (min-device-pixel-ratio:2)
+		&after
+			-webkit-transform scaleY(0.7)
+			transform scaleY(0.7)
+@media (min-device-pixel-ratio 2) and (min-device-pixel-ratio 2)
 	.border-1px
-		&::after
-			-webkit-transform: scaleY(0.5)
-			transform: scaleY(0.5)			
+		&after
+			-webkit-transform scaleY(0.5)
+			transform scaleY(0.5)
