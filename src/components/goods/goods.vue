@@ -45,10 +45,10 @@ export default {
       type: Object
     }
   },
-  data(){
-	  return {
-		  goods:[]
-	  }
+  data() {
+    return {
+      goods: []
+    };
   },
   created() {
     this.$http.get("/api/goods").then(res => {
@@ -57,8 +57,8 @@ export default {
         console.log(res);
         this.goods = res.data;
       }
-	});
-	this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
+    });
+    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
   }
 };
 </script>
@@ -77,11 +77,11 @@ export default {
 		width 80px
 		background #f3f5f7
 		.menu-item
-			display table //用于垂直居中
+			display table // 用于垂直居中
 			width 56px
 			height 54px
 			padding 0 12px
-			line-height 14px 
+			line-height 14px
 			.icon
 				display inline-block
 				vertical-align top
@@ -105,7 +105,7 @@ export default {
 				width 56px
 				vertical-align middle
 				font-size 12px
-				border-bottom 1px solid rgba(7,17,27,0.1)		
+				border-bottom 1px solid rgba(7, 17, 27, 0.1)
 				// border-1px(rgba(7,17,27,0.1))	//TODO: 不知道为什么border-1px报错
 	.foods-wrapper
 		flex 1
@@ -113,7 +113,7 @@ export default {
 			padding-left 14px
 			height 26px
 			line-height 26px
-			color rgb(147,153,159) 
+			color rgb(147, 153, 159)
 			background-color #f3f5f7
 </style>
 
